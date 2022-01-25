@@ -19,29 +19,28 @@ public class SQLUserDaoImpl implements UserDao {
     public User authorization(String name, String password) throws DAOException {
         Statement statement = null;
         ResultSet resultSet = null;
-
         Connection connection = null;
         try {
             connection = connectionPool.takeConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM users WHERE login=" + name + " AND password=" + password);
             if (resultSet.next()) {
-                String userName =  resultSet.getString(1) ;
+                String userName = resultSet.getString(1);
                 String userPassword = resultSet.getString(2);
                 String userEmail = resultSet.getString(3);
-                return new User(userName,userEmail,userPassword);
+                connection.close();
+                return new User(userName, userEmail, userPassword);
             }
 
         } catch (ConnectionPoolException | SQLException e) {
             e.printStackTrace();
         }
         return null;
-        }
-
-
-        @Override
-        public boolean registration (UserInfo userInfo) throws DAOException {
-            return false;
-        }
-
     }
+
+    @Override
+    public boolean registration(UserInfo userInfo) throws DAOException {
+        return false;
+    }
+
+}

@@ -14,7 +14,7 @@ public class JDBCTest {
             System.out.println("Start...");
 
             con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/laboratory?useSSL=false", "root",
-                    "Vitebsk310429/104");
+                    "104");
             // одиночный запрос типа statement0
 
             statement = con.createStatement();
