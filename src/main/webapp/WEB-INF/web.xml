@@ -31,13 +31,16 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+
     <listener>
         <listener-class>
-            com.niptis.LaboratoryV20.ProjectRequestListener
+            com.niptis.LaboratoryV20.listener.ProjectRequestListener
         </listener-class>
     </listener>
 
-
+    <listener>
+        <listener-class>
+            com.niptis.LaboratoryV20.listener.ConnectionPoolInitializer
+        </listener-class>
+    </listener>
 </web-app>
-
-

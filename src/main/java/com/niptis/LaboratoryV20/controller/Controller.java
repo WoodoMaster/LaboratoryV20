@@ -11,26 +11,26 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-	private final CommandProvider commandProvider = new CommandProvider();
-	
+    private static final long serialVersionUID = 1L;
+
+    private final CommandProvider commandProvider = new CommandProvider();
+
     public Controller() {
-        super(); 
+        super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		process(request, response);
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        process(request, response);
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		process(request, response);
-	}
-	
-	private void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-     String commandName = request.getParameter("command");
-		Command command = commandProvider.getCommand(commandName);
-		command.execute(request, response);
-	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        process(request, response);
+    }
+
+    private void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String commandName = request.getParameter("command");
+        Command command = commandProvider.getCommand(commandName);
+        command.execute(request, response);
+    }
 
 }

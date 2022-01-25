@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class SQLUserDaoImpl implements UserDao {
-    ConnectionPool connectionPool = new ConnectionPool();
+    ConnectionPool connectionPool = ConnectionPool.getInstance();
 
     @Override
     public User authorization(String name, String password) throws DAOException {
@@ -23,12 +23,16 @@ public class SQLUserDaoImpl implements UserDao {
         try {
             connection = connectionPool.takeConnection();
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM users WHERE login=" + name + " AND password=" + password);
+            resultSet = statement.executeQuery("SELECT*FROM laboratory.users where (users.login = \'" + name + "\'" +
+                    " and users.password = \'" + password + "\')");
+            System.out.println(name + " " + password);
             if (resultSet.next()) {
                 String userName = resultSet.getString(1);
                 String userPassword = resultSet.getString(2);
                 String userEmail = resultSet.getString(3);
                 connection.close();
+                System.out.println("Authorization complete");
+                System.out.println(userName + " " + userEmail + " " + userPassword);
                 return new User(userName, userEmail, userPassword);
             }
 

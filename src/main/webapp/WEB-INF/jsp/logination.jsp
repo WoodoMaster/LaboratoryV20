@@ -11,6 +11,15 @@
 <body background="img/city1.jpg">
 
 <h1>Для входа в личный кабинет введите логин и пароль</h1>
+<%
+    String loginationInfo =(String) request.getParameter("loginationInfo");
+    if (loginationInfo!=null) {
+%>
+<h2>
+    <%
+            out.print("Ошибка входа, повторите попытку"); }
+    %>
+</h2>
 <form action = "Controller" method="post">
 Логин:
 <input type = "text" name = "login" value =""/>

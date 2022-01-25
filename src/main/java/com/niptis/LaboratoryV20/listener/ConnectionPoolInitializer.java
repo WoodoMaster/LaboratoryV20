@@ -2,31 +2,24 @@ package com.niptis.LaboratoryV20.listener;
 
 import com.niptis.LaboratoryV20.db.ConnectionPool;
 
-import javax.servlet.*;
-import javax.servlet.annotation.WebListener;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 
-@WebListener
-public class ProjectRequestListener implements ServletContextListener {
-
+public class ConnectionPoolInitializer implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+
         ServletContext context =  sce.getServletContext();
         String contextPath = context.getContextPath();
-        System.out.println("Context from" + contextPath + " was initialized");
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
+        System.out.println("ConnectionPool was created");
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         ServletContext context =  sce.getServletContext();
         String contextPath = context.getContextPath();
-        System.out.println("Context from" + contextPath + " was destroyed");
+        System.out.println("ConnectionPool was destroyed");
     }
-    /*
-     <listener>
-        <listener-class>
-            com.tc.webapp01.listener.ProjectRequestListener
-        </listener-class>
-    </listener>
-     */
-
 }

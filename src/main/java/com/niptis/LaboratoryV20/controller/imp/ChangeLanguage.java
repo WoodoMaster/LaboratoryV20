@@ -12,7 +12,7 @@ public class ChangeLanguage implements Command {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String locale = request.getParameter("locale");
         request.getSession().setAttribute("locale", locale);
-        String url = (String)request.getSession().getAttribute("url");
+        String url = (String) request.getSession().getAttribute("url");
         response.sendRedirect(url);
     }
 }

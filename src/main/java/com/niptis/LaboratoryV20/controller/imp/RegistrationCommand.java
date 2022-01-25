@@ -15,6 +15,7 @@ import com.niptis.LaboratoryV20.db.ConnectionPool;
 import com.niptis.LaboratoryV20.db.exception.ConnectionPoolException;
 
 public class RegistrationCommand implements Command {
+    //TODO realize registration
     //private String email; //передается дальше на страницу mainpage
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
