@@ -1,6 +1,6 @@
-package com.niptis.LaboratoryV20.db;
+package com.niptis.LaboratoryV20.dao.connection;
 
-import com.niptis.LaboratoryV20.db.exception.ConnectionPoolException;
+import com.niptis.LaboratoryV20.dao.connection.exception.ConnectionPoolException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -87,20 +87,22 @@ public final class ConnectionPool {
     }
 
     public void closeConnection(Connection con, Statement st, ResultSet rs) {
-        try {
-            con.close();
-        } catch (SQLException e) {
-            logger.log(Level.ERROR, "Connection isn't return to the pool.");
-        }
-        try {
-            rs.close();
-        } catch (SQLException e) {
-            logger.log(Level.ERROR, "ResultSet isn't closed.");
-        }
-        try {
-            st.close();
-        } catch (SQLException e) {
-            logger.log(Level.ERROR, "Statement isn't closed.");
+        if (con != null) {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                logger.log(Level.ERROR, "Connection isn't return to the pool.");
+            }
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                logger.log(Level.ERROR, "ResultSet isn't closed.");
+            }
+            try {
+                st.close();
+            } catch (SQLException e) {
+                logger.log(Level.ERROR, "Statement isn't closed.");
+            }
         }
     }
 

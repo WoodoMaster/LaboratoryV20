@@ -1,16 +1,17 @@
-package com.niptis.LaboratoryV20.filter;
-
-import java.io.*;
+package com.niptis.LaboratoryV20.controller.filter;
 
 import javax.servlet.*;
+import java.io.IOException;
 
 public class CharsetFilter implements Filter {
     private String requestEncoding;
     private String responseEncoding;
+    private final String requestEncodingString = "requestEncoding";
+    private final String responseEncodingString = "responseEncoding";
 
     public void init(FilterConfig config) throws ServletException {
-        requestEncoding = setEncodingIfNull(config, "requestEncoding");
-        responseEncoding = setEncodingIfNull(config, "responseEncoding");
+        requestEncoding = setEncodingIfNull(config, requestEncodingString);
+        responseEncoding = setEncodingIfNull(config, responseEncodingString);
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain next)

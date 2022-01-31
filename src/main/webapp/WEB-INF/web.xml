@@ -19,7 +19,7 @@
 
     <filter>
         <filter-name>Charset Filter</filter-name>
-        <filter-class>com.niptis.LaboratoryV20.filter.CharsetFilter</filter-class>
+        <filter-class>com.niptis.LaboratoryV20.controller.filter.CharsetFilter</filter-class>
         <init-param>
             <param-name>requestEncoding</param-name>
             <param-value>utf-8</param-value>
@@ -34,13 +34,13 @@
 
     <listener>
         <listener-class>
-            com.niptis.LaboratoryV20.listener.ProjectRequestListener
+            com.niptis.LaboratoryV20.controller.listener.ProjectRequestListener
         </listener-class>
     </listener>
 
     <listener>
         <listener-class>
-            com.niptis.LaboratoryV20.listener.ConnectionPoolInitializer
+            com.niptis.LaboratoryV20.controller.listener.ConnectionPoolInitializer
         </listener-class>
     </listener>
 </web-app>

@@ -1,7 +1,7 @@
 package com.niptis.LaboratoryV20.controller.imp;
 
 import com.niptis.LaboratoryV20.controller.Command;
-import com.niptis.LaboratoryV20.entity.Greeting;
+import com.niptis.LaboratoryV20.test.entity.Greeting;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,20 +11,20 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class GoToNewHelloPage implements Command {
+    private final String greeting = "Наша цель - качество вашей продукции";
+    private final String requestAttributeName = "myMsg";
+    private final String urlAddress = "/WEB-INF/jsp/NewHelloPage.jsp";
+    private final String sessionAttributeName = "url";
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String url = request.getRequestURL().toString();
-        String uri = request.getRequestURI();
-        System.out.println("url = " + url);
-        System.out.println("uri = " + uri);
-        session.setAttribute("url", url);
+        session.setAttribute(sessionAttributeName, url);
 
-        Greeting gr = new Greeting("Наша цель - качество вашей продукции");
-        request.setAttribute("myMsg", gr);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/NewHelloPage.jsp");
+        Greeting gr = new Greeting(greeting);
+        request.setAttribute(requestAttributeName, gr);
+        RequestDispatcher dispatcher = request.getRequestDispatcher(urlAddress);
         dispatcher.forward(request, response);
     }
-
 }

@@ -1,6 +1,6 @@
-package com.niptis.LaboratoryV20.listener;
+package com.niptis.LaboratoryV20.controller.listener;
 
-import com.niptis.LaboratoryV20.db.ConnectionPool;
+import com.niptis.LaboratoryV20.dao.connection.ConnectionPool;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -10,16 +10,14 @@ public class ConnectionPoolInitializer implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
 
-        ServletContext context =  sce.getServletContext();
+        ServletContext context = sce.getServletContext();
         String contextPath = context.getContextPath();
         ConnectionPool connectionPool = ConnectionPool.getInstance();
-        System.out.println("ConnectionPool was created");
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        ServletContext context =  sce.getServletContext();
+        ServletContext context = sce.getServletContext();
         String contextPath = context.getContextPath();
-        System.out.println("ConnectionPool was destroyed");
     }
 }

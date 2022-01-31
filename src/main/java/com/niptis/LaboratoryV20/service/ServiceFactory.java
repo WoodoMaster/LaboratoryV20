@@ -1,6 +1,7 @@
 package com.niptis.LaboratoryV20.service;
 
-import com.niptis.LaboratoryV20.service.impl.*;
+import com.niptis.LaboratoryV20.service.impl.FindUserServiceImpl;
+import com.niptis.LaboratoryV20.service.impl.UserServiceImpl;
 
 
 public class ServiceFactory {
@@ -8,14 +9,16 @@ public class ServiceFactory {
     private final FindUserService findUserService = new FindUserServiceImpl();
     private final UserService userService = new UserServiceImpl();
 
-   /* private final FindTestPieceService findTestPieceService = new FindTestPieceServiceImpl();
-    private final FindJobApplicationService findJobApplicationService = new FindJobAppilcationServiceImpl();
-    private final TestPieceService testPieceService = new TestPieceServiceImpl();
-    private final JobApplicationService jobApplicationService = new JobApplicationServiceImpl();
-*/
-    private ServiceFactory(){}
+    /* private final FindTestPieceService findTestPieceService = new FindTestPieceServiceImpl();
+     private final FindJobApplicationService findJobApplicationService = new FindJobAppilcationServiceImpl();
+     private final TestPieceService testPieceService = new TestPieceServiceImpl();
+     private final JobApplicationService jobApplicationService = new JobApplicationServiceImpl();
+ */
+    private ServiceFactory() {
+    }
+
     public static ServiceFactory getInstance() {
-        return instance ;
+        return instance;
     }
 
     public FindUserService getFindUserService() {

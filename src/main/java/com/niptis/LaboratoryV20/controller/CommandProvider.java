@@ -1,9 +1,9 @@
 package com.niptis.LaboratoryV20.controller;
 
+import com.niptis.LaboratoryV20.controller.imp.*;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import com.niptis.LaboratoryV20.controller.imp.*;
 
 public final class CommandProvider {
     private final Map<String, Command> commands = new HashMap<String, Command>();

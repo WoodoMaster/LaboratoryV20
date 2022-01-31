@@ -1,4 +1,4 @@
-package com.niptis.LaboratoryV20.JDCB;
+package com.niptis.LaboratoryV20.test.jdbc;
 
 import java.sql.*;
 
@@ -28,7 +28,7 @@ public class JDBCTest {
                         resultSet.getString(5));
             }
 
-           // Запись в таблицу users через PreparedStatement
+            // Запись в таблицу users через PreparedStatement
             String sql = "INSERT INTO users(login,password,email,phone,status) VALUES(?,?,?,?,?)";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
 
@@ -38,7 +38,7 @@ public class JDBCTest {
             preparedStatement.setString(4, "2262113");
             preparedStatement.setString(5, "Active");
 
-            System.out.println( preparedStatement.executeUpdate());
+            System.out.println(preparedStatement.executeUpdate());
 
 
             System.out.println("ok");

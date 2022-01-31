@@ -1,4 +1,4 @@
-package com.niptis.LaboratoryV20.db.exception;
+package com.niptis.LaboratoryV20.dao.connection.exception;
 
 
 public class ConnectionPoolException extends Exception {

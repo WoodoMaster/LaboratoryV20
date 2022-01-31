@@ -1,33 +1,31 @@
 package com.niptis.LaboratoryV20.controller.imp;
 
-import java.io.IOException;
+import com.niptis.LaboratoryV20.controller.Command;
+import com.niptis.LaboratoryV20.test.entity.Greeting;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.niptis.LaboratoryV20.controller.Command;
-import com.niptis.LaboratoryV20.entity.Greeting;
+import java.io.IOException;
 
 public class GoToRegPageCommand implements Command {
-
+    private final String greeting = "Наша цель - качество вашей продукции";
+    private final String requestAttributeName = "myMsg";
+    private final String urlAddress = "/WEB-INF/jsp/NewHelloPage.jsp";
+    private final String sessionAttributeName = "url";
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Greeting gr = new Greeting("Приветствуем нового пользователя!");
-        request.setAttribute("myMsg", gr);
+        Greeting gr = new Greeting(greeting);
+        request.setAttribute(requestAttributeName, gr);
         HttpSession session = request.getSession();
         String url = request.getRequestURL().toString();
-        String uri = request.getRequestURI();
 
+        session.setAttribute(sessionAttributeName, url);
 
-        System.out.println("url = " + url);
-        System.out.println("uri = " + uri);
-        session.setAttribute("url", url);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registration.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(urlAddress);
         dispatcher.forward(request, response);
     }
 

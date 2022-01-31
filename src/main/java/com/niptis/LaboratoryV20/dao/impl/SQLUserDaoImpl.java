@@ -2,10 +2,9 @@ package com.niptis.LaboratoryV20.dao.impl;
 
 import com.niptis.LaboratoryV20.dao.DAOException;
 import com.niptis.LaboratoryV20.dao.UserDao;
-import com.niptis.LaboratoryV20.db.ConnectionPool;
-import com.niptis.LaboratoryV20.db.exception.ConnectionPoolException;
+import com.niptis.LaboratoryV20.dao.connection.ConnectionPool;
+import com.niptis.LaboratoryV20.dao.connection.exception.ConnectionPoolException;
 import com.niptis.LaboratoryV20.entity.User;
-import com.niptis.LaboratoryV20.entity.UserInfo;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -38,12 +37,13 @@ public class SQLUserDaoImpl implements UserDao {
 
         } catch (ConnectionPoolException | SQLException e) {
             e.printStackTrace();
+            throw new DAOException("dao Access error", e);
         }
         return null;
     }
 
     @Override
-    public boolean registration(UserInfo userInfo) throws DAOException {
+    public boolean registration(User user) throws DAOException {
         return false;
     }
 

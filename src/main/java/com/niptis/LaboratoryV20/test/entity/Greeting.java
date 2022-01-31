@@ -1,4 +1,4 @@
-package com.niptis.LaboratoryV20.entity;
+package com.niptis.LaboratoryV20.test.entity;
 
 import java.util.Objects;
 

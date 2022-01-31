@@ -4,7 +4,7 @@ import com.niptis.LaboratoryV20.dao.impl.SQLUserDaoImpl;
 
 public class DAOFactory {
     private final static DAOFactory instance = new DAOFactory();
-    private final SQLUserDaoImpl SQLUserDaoImpl = new SQLUserDaoImpl();
+    private final UserDao userDao = new SQLUserDaoImpl();
     // private final  SQLJobApplicationDAOImpl jobApplicationDAO = new SQLJobApplicationDAOImpl();
     // private final SQLTestPieceDAOImpl testPieceDAO = new SQLTestPieceDAOImpl();
 
@@ -15,11 +15,9 @@ public class DAOFactory {
         return instance;
     }
 
-    public SQLUserDaoImpl getSQLUserDao() {
-        return SQLUserDaoImpl;
+    public UserDao getUserDao() {
+        return userDao;
     }
 
-  /*  public SQLJobApplicationDAOImpl getJobApplicationDAO() {     return jobApplicationDAO;}
-    public SQLTestPieceDAOImpl getTestPieceDAO() {return testPieceDAO;}*/
 }
 

@@ -1,4 +1,4 @@
-package com.niptis.LaboratoryV20.db;
+package com.niptis.LaboratoryV20.dao.connection;
 
 import java.util.ResourceBundle;
 

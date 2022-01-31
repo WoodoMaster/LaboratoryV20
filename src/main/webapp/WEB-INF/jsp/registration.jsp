@@ -1,4 +1,4 @@
-<%@ page import="com.niptis.LaboratoryV20.entity.Greeting" %>
+<%@ page import="com.niptis.LaboratoryV20.test.entity.Greeting" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>

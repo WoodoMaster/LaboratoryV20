@@ -1,9 +1,9 @@
 package com.niptis.LaboratoryV20.service;
 
-import com.niptis.LaboratoryV20.entity.UserInfo;
+import com.niptis.LaboratoryV20.entity.User;
 
 import java.util.List;
 
 public interface FindUserService {
-    List<UserInfo> find (UserInfo userInfo);
+    List<User> find(User user);
 }

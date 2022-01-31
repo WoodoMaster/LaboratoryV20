@@ -1,6 +1,6 @@
 package com.niptis.LaboratoryV20.service;
 
-public class ServiceException extends Exception{
+public class ServiceException extends Exception {
 
     private static final long serialVersionUID = 7964000571075610683L;
 
